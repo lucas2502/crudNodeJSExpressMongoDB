@@ -1,0 +1,28 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "Create CRUD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas2502/crudNodeJSExpressMongoDB.git"
+  },
+  "author": "Lucas Gonçalves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucas2502/crudNodeJSExpressMongoDB/issues"
+  },
+  "homepage": "https://github.com/lucas2502/crudNodeJSExpressMongoDB#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
