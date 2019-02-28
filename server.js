@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = "mongodb://admin:admin@server1:27017,server2:27017,server3:27017/crud-nodejs?ssl=true&replicaSet=example-shard-0&authSource=admin";
+const uri = "mongodb+srv://admin:admin@cluster0-rx5e2.mongodb.net/crud-nodejs?retryWrites=true";
 const app = express();
 
 
