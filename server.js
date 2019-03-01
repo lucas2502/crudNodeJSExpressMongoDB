@@ -2,8 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+const ObjectId = require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://admin:admin@cluster0-rx5e2.mongodb.net/crud-nodejs?retryWrites=true";
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 MongoClient.connect(uri, (err, client) => {
     if (err) return console.log(err);
@@ -13,9 +16,6 @@ MongoClient.connect(uri, (err, client) => {
         console.log('server running on port 3000');
     })
 })
-
-
-app.use(bodyParser.urlencoded({ extended:true }));
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -68,5 +68,16 @@ app.route('/edit/:id')
         if(err) return res.send(err)
         res.redirect('/show');
         console.log('Atualizado no banco de Dados');
+    })
+})
+
+app.route('/delete/:id')
+.get((req, res) => {
+    var id = req.params.id;
+
+    db.collection('data').deleteOne({_id: ObjectId(id)}, (err, result) => {
+        if(err) return res.send(500, err)
+        console.log('Deletando do Banco de Dados');
+        res.redirect('/show');
     })
 })
